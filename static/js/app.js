@@ -31,7 +31,7 @@ function getData(){
 }
 
 function doStuff(){
-    let value = document.getElementById('username').value;
+    let value = document.getElementById('year').value;
     let url = `http://127.0.0.1:5000/api/v1.0/${value}`
     fetch(url).then(response => response.json())
     .then(json => {console.log(json);
