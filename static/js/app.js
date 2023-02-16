@@ -32,7 +32,7 @@ function getData(){
 
 function doStuff(){
     let value = document.getElementById('username').value;
-    let url = `http://127.0.0.1:5000/testquery/${value}`
+    let url = `http://127.0.0.1:5000/api/v1.0/${value}`
     fetch(url).then(response => response.json())
     .then(json => {console.log(json);
     document.getElementById('test').innerHTML = JSON.stringify(json)});
