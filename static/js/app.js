@@ -13,18 +13,26 @@ d3.json(url).then(function(data){
 
 });
 
-function doStuff(){
-    console.log('getting name...');
-    let userinfo = document.getElementById('username').value;
-    console.log(`Hello, ${userinfo}`);
-    const request = new XMLHttpRequest();
-    request.open('POST', `/ProcessUserinfo/${JSON.stringify(userinfo)}`);
-    request.send();
-}
+// function doStuff(){
+//     console.log('getting name...');
+//     let userinfo = document.getElementById('username').value;
+//     console.log(`Hello, ${userinfo}`);
+//     const request = new XMLHttpRequest();
+//     request.open('POST', `/ProcessUserinfo/${JSON.stringify(userinfo)}`);
+//     request.send();
+// }
 
 function getData(){
     console.log('getting data...');
     url = 'http://127.0.0.1:5000/accidents'
+    fetch(url).then(response => response.json())
+    .then(json => {console.log(json);
+    document.getElementById('test').innerHTML = JSON.stringify(json)});
+}
+
+function doStuff(){
+    let value = document.getElementById('username').value;
+    let url = `http://127.0.0.1:5000/testquery/${value}`
     fetch(url).then(response => response.json())
     .then(json => {console.log(json);
     document.getElementById('test').innerHTML = JSON.stringify(json)});

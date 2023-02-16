@@ -42,3 +42,12 @@ def accidents():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+@app.route('/testquery/<startyear>')
+def getYear(start):
+    year = int(start)
+    session = Session(engine)
+    data = session.query(Roadacc.road_crashes, Roadacc.year).filter(Roadacc > year).all()
+    session.close()
+    results = [{"Crashes": r.road_crashes}, "Year": r.year} for r in data]
+    return jsonify(results)
