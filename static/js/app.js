@@ -23,7 +23,6 @@ d3.json(url).then(function(data){
 // }
 
 function getData(){
-    console.log('getting data...');
     url = 'http://127.0.0.1:5000/accidents'
     fetch(url).then(response => response.json())
     .then(json => {console.log(json);

@@ -21,14 +21,14 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/ProcessUserinfo/<string:userinfo>', methods=['POST'])
-def ProcessUserinfo(userinfo):
-    userinfo = json.loads(userinfo)
-    username = userinfo
-    print('-----')
-    print(f"Your name is {username}")
-    print('-----')
-    return('/')
+# @app.route('/ProcessUserinfo/<string:userinfo>', methods=['POST'])
+# def ProcessUserinfo(userinfo):
+#     userinfo = json.loads(userinfo)
+#     username = userinfo
+#     print('-----')
+#     print(f"Your name is {username}")
+#     print('-----')
+#     return('/')
 
 @app.route('/accidents')
 def accidents():
